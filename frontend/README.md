@@ -1,0 +1,1 @@
+toza va tartibli bo'ling
