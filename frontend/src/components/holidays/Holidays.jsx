@@ -1,13 +1,13 @@
 import React from "react";
 import "./Holidays.css";
 import { Link } from "react-router-dom";
-import { data } from "../../static/advertisement";
 
-function Holidays() {
+function Holidays({ data }) {
   return (
     <div className="holidays_container">
-      {data.holidays?.map((item, index) => (
-        <Link to={'/'}
+      {data?.map((item, index) => (
+        <Link
+          to={"/"}
           key={index}
           style={{
             background: `url(${item.img})`,

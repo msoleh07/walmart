@@ -8,6 +8,7 @@ import Brands from "../../components/brands/Brands";
 import img from "../../assets/Screen Shot 2023-11-27 at 7.38.13 PM.png";
 import { products } from "../../static/products";
 import Products from "../../components/products/Products";
+import { data } from "../../static/advertisement";
 
 function Home() {
   const tools = products.filter((i) => i.category === "Tires");
@@ -30,7 +31,7 @@ function Home() {
         data={tools}
         img={img}
       />
-      <Holidays />
+      <Holidays data={data.holidays} />
       <Products title={"More for gifting season"} data={season} />
       <Cards
         title={"All they want, for less"}
@@ -42,7 +43,7 @@ function Home() {
       />
       {/* All they want, for less */}
       <Category />
-      <Holidays /> {/*  baby */}
+      <Holidays data={data.baby} /> {/*  baby */}
       <Products title={"Top gifts? Game on!"} data={electronic} />
       <Cards
         title={"Get what's going viral"}

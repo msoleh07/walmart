@@ -5,14 +5,26 @@ import { CiEdit } from "react-icons/ci";
 import axios from "axios";
 
 const AllProduct = () => {
-  const [productAllData, setProductAllData] = useState("");
-
+  let API = "http://localhost:8080/delete";
+  const [productAllData, setProductAllData] = useState(null);
+  const [productId, setProductId] = useState("");
+  let con = window.confirm("ochirishga rozimisiz");
   useEffect(() => {
     axios
       .get("http://localhost:8080/all")
       .then((res) => setProductAllData(res.data.innerData))
       .catch((err) => console.log(err));
   }, []);
+
+  const deleteProduct = (id) => {
+    if (con) {
+      axios
+        .delete(API + "/" + id)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+      window.location.reload();
+    }
+  };
 
   return (
     <div className="product_page">
@@ -34,7 +46,7 @@ const AllProduct = () => {
                 <p>{item.price}</p>
                 <span>{item.brand}</span>
                 <div className="product_btns">
-                  <button>
+                  <button onClick={() => deleteProduct(item._id)}>
                     <GoTrash />
                   </button>
                   <button>
