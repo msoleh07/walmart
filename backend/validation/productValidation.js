@@ -3,10 +3,10 @@ const Joi = require("joi");
 const productValidation = (req, res, next) => {
   const schema = Joi.object({
     title: Joi.string().min(3).required(),
-    prices: Joi.string().required(),
+    price: Joi.number().required(),
     images: Joi.array().required().min(1),
     description: Joi.string(),
-    brend: Joi.string().required(),
+    brand: Joi.string().required(),
     details: Joi.array(),
     category: Joi.string().required(),
   });

@@ -31,7 +31,28 @@ rt.post("/create", [productValidation], async (req, res) => {
     .json({ success: true, msg: "Product was created", innetData: saved });
 });
 
-//
+// PUT
+
+rt.put("/update/:id", async (req, res) => {
+  let { id } = req.params;
+  let updatedProduct = req.body;
+  let updateProduct = await DB.findByIdAndUpdate(id, updatedProduct);
+  if (!updateProduct) {
+    return res.send({ msg: "Product is not found", innerData: updateProduct });
+  }
+  res.send({ msg: "Product is updated succesfully", innerData: updateProduct });
+});
+
+// PRODUCT delete
+
+rt.delete("/delete/:id", async (req, res) => {
+  let { id } = req.params;
+  let deletedProduct = await DB.findByIdAndDelete(id);
+  if (!deletedProduct) {
+    return res.send({ msg: "Product is not found", innerData: deletedProduct });
+  }
+  res.send({ msg: "Product is deleted", innerData: deletedProduct });
+});
 
 // SEARCH
 

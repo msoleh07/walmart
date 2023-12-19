@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const { connect } = require("mongoose");
 const { rt } = require("./routes/product");
+const { users } = require("./routes/user");
 require("colors");
 require("dotenv").config();
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => res.send(`<h2>Wellcom to website</h2>`));
 
 // routes
 app.use(rt);
+app.use("/user", users);
 
 const PORT = process.env.PORT || 5500;
 
