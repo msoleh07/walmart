@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Banner from "../../components/banner/Banner";
 import Cards from "../../components/cards/Cards";
 import Holidays from "../../components/holidays/Holidays";
@@ -11,15 +12,15 @@ import Products from "../../components/products/Products";
 import { data } from "../../static/advertisement";
 
 function Home() {
-  const tools = products.filter((i) => i.category === "Tires");
-  const cloth = products.filter((i) => i.category === "fashion");
+  const tools = products?.filter((i) => i.category === "Tires");
+  const cloth = products?.filter((i) => i.category === "fashion");
 
   // products Data
   let blackFriday = products.slice(0, 12);
-  let season = products.slice(13, 25);
-  let electronic = products.filter((i) => i.category === "electronic");
-  let moreToLove = products.filter((i) => i.category === "Grocery");
-  let fashion = products.filter((i) => i.category === "fashion");
+  let season = products?.slice(13, 25);
+  let electronic = products?.filter((i) => i.category === "electronic");
+  let moreToLove = products?.filter((i) => i.category === "Grocery");
+  let fashion = products?.filter((i) => i.category === "fashion");
 
   return (
     <div>

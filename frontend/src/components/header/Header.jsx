@@ -119,13 +119,13 @@ function Header() {
             </div>
           </div>
 
-          <div className="sign">
+          <Link to={"/register"} className="sign">
             <FaRegUser />
             <div className="sp">
               <span>Sign In</span>
               <b>Account</b>
             </div>
-          </div>
+          </Link>
 
           <Link to={"/cart"} className="cart">
             <span className="length">{cartLength}</span>

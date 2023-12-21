@@ -6,6 +6,7 @@ import Header from "./components/header/Header";
 import Cart from "./routes/cart/Cart";
 import AllProduct from "./routes/allProduct/AllProduct";
 import CreateData from "./routes/createData/CreateData";
+import Register from "./routes/register/Register";
 
 function Router() {
   return (
@@ -17,6 +18,7 @@ function Router() {
         <Route path="/single/:id" element={<SinglePage />} />
         <Route path="/allproduct" element={<AllProduct />} />
         <Route path="/create" element={<CreateData />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );
